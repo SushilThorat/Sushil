@@ -1,0 +1,39 @@
+package webElementMethod;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class GetLocationMethod {
+
+	public static void main(String[] args) {
+		
+		System.setProperty("webdriver.chrome.driver","./drivers/chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.get("https://www.selenium.dev");
+		
+		WebElement news=driver.findElement(By.xpath("//h2[.='News']"));
+		org.openqa.selenium.Point loc= news.getLocation();
+		int xaxis = loc.getX();
+		int yaxis = loc.getY();
+		System.out.println(xaxis+" x axis distance");//633 x axis distance
+		System.out.println(yaxis+" y axis distance");//1615 y axis distance
+
+		
+		org.openqa.selenium.Rectangle rect = news.getRect();
+		int height = rect.getHeight();
+		int width = rect.getWidth();
+		
+		System.out.println(height+" height");//38 height
+
+		System.out.println(width+ " width");//81 width
+
+		
+	}
+
+}
