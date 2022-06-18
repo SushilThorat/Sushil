@@ -11,7 +11,7 @@ public class IdLocator {
 		System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
 		WebDriver driver=new ChromeDriver();
 		driver.manage().window().maximize();
-		driver.get("file:///C:/Users/HP/Desktop/1wcsm7htmldocs/login.html");
+		driver.get("http://desktop-t7ev659/login.do");
 		driver.findElement(By.id("i1")).sendKeys("admin");
 		driver.findElement(By.id("i2")).sendKeys("manager");
 
